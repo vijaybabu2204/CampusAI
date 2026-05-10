@@ -12,7 +12,7 @@ This project includes:
 - Student query assistance
 - Smart AI-based responses
 - Campus-related information support
-- Interactive PowerApps interfa
+- Interactive PowerApps interface
 - Automated workflows and notifications
 ## Technologies Used
 - Microsoft Copilot Studio
@@ -21,7 +21,7 @@ This project includes:
 - Power Platform
 
 ## Project Structure
-- Copilot Studio Agentshhh  hh  b  
+- Copilot Studio Agents
 - PowerApps Application
 - Automation Flows
 - Documentation and Screenshots
