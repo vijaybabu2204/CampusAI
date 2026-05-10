@@ -197,13 +197,18 @@ Stores temporary schedule overrides:
 
 ## 🧰 Built With
 
-![Power Apps](https://img.shields.io/badge/Power%20Apps-742774?style=for-the-badge&logo=powerapps&logoColor=white)
-![Power Automate](https://img.shields.io/badge/Power%20Automate-0066FF?style=for-the-badge&logo=powerautomate&logoColor=white)
-![Copilot Studio](https://img.shields.io/badge/Copilot%20Studio-00B4D8?style=for-the-badge&logo=microsoft&logoColor=white)
-![Dataverse](https://img.shields.io/badge/Dataverse-742774?style=for-the-badge&logo=microsoft&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)
-![Azure](https://img.shields.io/badge/Azure%20AI-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)
-![SharePoint](https://img.shields.io/badge/SharePoint-0078D4?style=for-the-badge&logo=microsoftsharepoint&logoColor=white)
+![Power Apps]
+![Power Automate]
+![Copilot Studio]
+![Dataverse]
+![Power BI]
+![Azure]
+![SharePoint]
+<img width="292" height="559" alt="WhatsApp Image 2026-05-10 at 4 09 50 PM" src="https://github.com/user-attachments/assets/f5aca841-d24e-4514-88e2-d909d572fc48" />
+<img width="294" height="542" alt="WhatsApp Image 2026-05-10 at 4 09 50 PM (1)" src="https://github.com/user-attachments/assets/8dd55150-bd36-44fd-b63f-40be7cf15026" />
+<img width="299" height="493" alt="WhatsApp Image 2026-05-10 at 4 09 51 PM" src="https://github.com/user-attachments/assets/8f0b05b3-d42b-4ee7-9d5a-8e91192d3b6b" />
+<img width="294" height="506" alt="WhatsApp Image 2026-05-10 at 4 09 51 PM (1)" src="https://github.com/user-attachments/assets/f8333a27-c94c-4d51-98f4-34020b3364f0" />
+
 
 ---
 
