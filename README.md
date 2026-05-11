@@ -88,19 +88,30 @@ Campus AI acts as a **centralized intelligence layer** for academic operations:
 > **Note:** Add your actual screenshots inside `/docs/screenshots/` and update the paths below.
 
 ### Student Chatbot Interface
-![Student Chatbot](./docs/screenshots/student-chatbot.png)
+![Student Chatbot]<img width="1600" height="776" alt="WhatsApp Image 2026-05-11 at 8 51 41 PM (1)" src="https://github.com/user-attachments/assets/9492db8f-b581-43e3-a1e9-d827da21a937" />
+
 > *Students can ask queries conversationally — timetable, room, trainer, placement, webinars.*
 
 ### Admin Agent Interface
-![Admin Agent](./docs/screenshots/admin-agent.png)
+![Admin Agent]<img width="1600" height="764" alt="WhatsApp Image 2026-05-11 at 8 51 41 PM" src="https://github.com/user-attachments/assets/4438cca8-2460-4ff3-8021-cf07362544fd" />
+
 > *Admins update schedules using natural language; the system handles the rest.*
 
 ### Power Automate Workflow
-![Power Automate Flow](./docs/screenshots/power-automate-flow.png)
+![Power Automate Flow]<img width="1600" height="864" alt="WhatsApp Image 2026-05-11 at 8 51 36 PM" src="https://github.com/user-attachments/assets/c3aefea3-a5f1-44fc-ba6d-abafa1bd0276" />
+<img width="1600" height="865" alt="WhatsApp Image 2026-05-11 at 8 51 38 PM" src="https://github.com/user-attachments/assets/c7a4ba00-db6a-4bd2-b51d-beeb9fb2ae27" />
+<img width="1600" height="858" alt="WhatsApp Image 2026-05-11 at 8 51 39 PM" src="https://github.com/user-attachments/assets/dae33d1e-28f8-4938-a89b-69bfb6ef367c" />
+
+
 > *Automated backend flow: emergency update → Dataverse → Outlook notification.*
 
 ### Dataverse Tables
-![Dataverse Tables](./docs/screenshots/dataverse-tables.png)
+![Dataverse Tables]<img width="1433" height="745" alt="WhatsApp Image 2026-05-11 at 8 51 36 PM (1)" src="https://github.com/user-attachments/assets/055c2c35-a633-44aa-9f0f-60aae71acbba" />
+<img width="1426" height="781" alt="WhatsApp Image 2026-05-11 at 8 51 37 PM" src="https://github.com/user-attachments/assets/f670b1ec-a999-4913-9d66-076550550acd" />
+<img width="1419" height="777" alt="WhatsApp Image 2026-05-11 at 8 51 38 PM (1)" src="https://github.com/user-attachments/assets/366aaa89-d693-4c38-b9bd-05d585267a41" />
+<img width="1430" height="779" alt="WhatsApp Image 2026-05-11 at 8 51 40 PM" src="https://github.com/user-attachments/assets/6928ec00-08fa-4717-946b-28e694dd6e27" />
+
+
 > *Structured Dataverse tables storing schedule, emergency updates, and webinar data.*
 
 ### Canvas App UI
