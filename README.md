@@ -129,6 +129,11 @@ Campus AI acts as a **centralized intelligence layer** for academic operations:
 
 ---
 
+PowerBI Dashboard
+
+<img width="1600" height="847" alt="WhatsApp Image 2026-05-11 at 11 32 27 PM" src="https://github.com/user-attachments/assets/90d10a1c-5583-4361-8f09-3a39498d3bcd" />
+
+---
 
 
 ## ⚙️ Technology Stack
