@@ -17,7 +17,7 @@
 
 ---
 
-**[📺 Demo Video](#-demo-video) · [📸 Screenshots](#-screenshots) · [🚀 Setup Guide](#-installation--setup) · [📄 Docs](./docs/)**
+**  [📸 Screenshots](#-screenshots) · [🚀 Setup Guide](#-installation--setup) · [📄 Docs](./docs/)**
 
 </div>
 
