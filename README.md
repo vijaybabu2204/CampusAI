@@ -129,19 +129,7 @@ Campus AI acts as a **centralized intelligence layer** for academic operations:
 
 ---
 
-## 📺 Demo Video
 
-> 🎬 **[Watch Campus AI in Action](#)**
-> *(Replace `#` with your YouTube / Google Drive demo link)*
-
-The demo covers:
-- Student Agent — asking timetable, room, trainer, and placement queries
-- Admin Agent — moving a class, cancelling a session, adding a webinar
-- Power Automate flow execution in real time
-- Outlook notification delivery to the affected batch
-- Dataverse table updates after each command
-
----
 
 ## ⚙️ Technology Stack
 
