@@ -1,0 +1,11 @@
+<botcomponent_workflowset>
+  <botcomponent_workflow botcomponentid.schemaname="cr452_agent.action.AdminEmergencyUpdateFlow" workflowid.workflowid="359d5bc4-9f39-f111-88b4-000d3ac9aa91">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+  <botcomponent_workflow botcomponentid.schemaname="cr452_StudentInformationRetrivalAgent.action.GetStudentSchedule" workflowid.workflowid="2b41454b-ee49-f111-bec7-000d3ac9aa91">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+  <botcomponent_workflow botcomponentid.schemaname="cr452_StudentInformationRetrivalAgent.topic.StudentSchedule" workflowid.workflowid="2b41454b-ee49-f111-bec7-000d3ac9aa91">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_workflow>
+</botcomponent_workflowset>

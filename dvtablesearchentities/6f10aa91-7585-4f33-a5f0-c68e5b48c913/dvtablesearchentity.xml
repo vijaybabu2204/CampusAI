@@ -1,0 +1,10 @@
+<dvtablesearchentity dvtablesearchentityid="6f10aa91-7585-4f33-a5f0-c68e5b48c913">
+  <dvtablesearch>
+    <dvtablesearchid>9e328bd3-2cc2-4467-8dff-5514ca0d3c5d</dvtablesearchid>
+  </dvtablesearch>
+  <entitylogicalname>cr452_emergencyupdates</entitylogicalname>
+  <iscustomizable>0</iscustomizable>
+  <name>cr452_EmergencyUpdates</name>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</dvtablesearchentity>

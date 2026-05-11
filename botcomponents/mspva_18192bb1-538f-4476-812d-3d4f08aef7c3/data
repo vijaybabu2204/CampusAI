@@ -1,0 +1,169 @@
+kind: MultiTurnEvaluationCase
+source: Manual
+activities:
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - schedule a webinar for tomorrow session to all the technologies
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          Sure! I'd be happy to help schedule a webinar for tomorrow. I have a few details to confirm before proceeding:
+
+          - 📅 **Date:** 05/08/2026 *(tomorrow)*
+          - 💻 **Technology:** All Technologies
+          - 👥 **Batch:** DRIVE READY *(default)*
+          - ✅ **Action:** Webinar
+          - 📋 **Scope:** Full Day
+
+          I still need the following details:
+
+          1. **Meeting Platform** — Which platform will be used? *(e.g., Teams, Zoom, Google Meet)*
+          2. **Webinar Timing** — What time will the webinar be scheduled? *(e.g., 10:00 AM – 12:00 PM)*
+          3. **Meeting Link** — Do you have a meeting link to share? *(optional, but recommended)*
+
+          Please provide these details so I can complete the update! 😊
+
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - no need to provide meet link
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          No worries! I'll proceed without a meeting link. I still need the following details to complete the update:
+
+          1. **Meeting Platform** — Which platform will be used? *(e.g., Teams, Zoom, Google Meet)*
+          2. **Webinar Timing** — What time will the webinar be scheduled? *(e.g., 10:00 AM – 12:00 PM)*
+
+          Please provide these so I can finalize the update! 😊
+
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - no need to mention plat form also
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          Understood! Just one more detail needed:
+
+          **Webinar Timing** — What time will the webinar be scheduled? *(e.g., 10:00 AM – 12:00 PM)*
+
+          Please provide the timing so I can finalize the update! 😊
+
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - 10 am
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          Great! Here's a summary of the webinar update before I proceed:
+
+          | Field | Details |
+          |---|---|
+          | 📅 **Start Date** | 2026-05-08 |
+          | 📅 **End Date** | 2026-05-08 |
+          | 💻 **Technology** | All Technologies |
+          | 👥 **Batch** | DRIVE READY |
+          | ✅ **Action** | Webinar |
+          | 📋 **Scope** | Full Day |
+          | ⏰ **Timing** | 10:00 AM |
+
+          Shall I go ahead and submit this update? ✅
+
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - yes
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          ✅ **Webinar update has been successfully submitted!**
+
+          Here's a recap of what was updated:
+
+          | Field | Details |
+          |---|---|
+          | 📅 **Start Date** | 2026-05-08 |
+          | 📅 **End Date** | 2026-05-08 |
+          | 💻 **Technology** | All Technologies |
+          | 👥 **Batch** | DRIVE READY |
+          | ✅ **Action** | Webinar |
+          | 📋 **Scope** | Full Day |
+          | ⏰ **Timing** | 10:00 AM |
+
+          The Dataverse **EmergencyUpdates** table has been updated accordingly. Is there anything else I can help you with? 😊
+
+  - activity:
+      value:
+        from:
+          role: user
+
+      text:
+        - schedule a webinar for tomorrow session to all the technologies at 10am to 12pm in there respected classes
+
+  - activity:
+      value:
+        from:
+          role: agent
+
+      text:
+        - |-
+          Got it! Here's a summary of the webinar update before I proceed:
+
+          | Field | Details |
+          |---|---|
+          | 📅 **Start Date** | 2026-05-08 |
+          | 📅 **End Date** | 2026-05-08 |
+          | 💻 **Technology** | All Technologies |
+          | 👥 **Batch** | DRIVE READY |
+          | ✅ **Action** | Webinar |
+          | 📋 **Scope** | Full Day |
+          | ⏰ **Timing** | 10:00 AM - 12:00 PM |
+          | 🏫 **Room** | Respective Classes |
+
+          Shall I go ahead and submit this update? ✅
+
+extensionData:
+  displayOrder: "1778149254308"

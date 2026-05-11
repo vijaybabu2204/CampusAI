@@ -1,0 +1,10 @@
+<botcomponent schemaname="cr452_StudentInformationRetrivalAgent.action.GetStudentSchedule">
+  <componenttype>9</componenttype>
+  <iscustomizable>0</iscustomizable>
+  <name>GetStudentSchedule</name>
+  <parentbotid>
+    <schemaname>cr452_StudentInformationRetrivalAgent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

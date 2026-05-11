@@ -1,0 +1,8 @@
+<botcomponent_dvtablesearchset>
+  <botcomponent_dvtablesearch botcomponentid.schemaname="cr452_StudentInformationRetrivalAgent.topic.EmergencyUpdates_I7iTbP0VxPU1Z8kAFVKBv" dvtablesearchid.dvtablesearchid="9e328bd3-2cc2-4467-8dff-5514ca0d3c5d">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_dvtablesearch>
+  <botcomponent_dvtablesearch botcomponentid.schemaname="cr452_StudentInformationRetrivalAgent.topic.WeeklySchedule_8xJb8pYnkf8GWWjO7vUkg" dvtablesearchid.dvtablesearchid="c57e6eb6-33f5-4e11-8498-097d0fc1de1b">
+    <iscustomizable>1</iscustomizable>
+  </botcomponent_dvtablesearch>
+</botcomponent_dvtablesearchset>

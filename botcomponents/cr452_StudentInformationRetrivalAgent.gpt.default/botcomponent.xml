@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr452_StudentInformationRetrivalAgent.gpt.default">
+  <componenttype>15</componenttype>
+  <description>This agent helps students retrieve schedule details, room information, emergency updates, and placement drive details using AI and Dataverse.</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Student Information Retrieval Agent</name>
+  <parentbotid>
+    <schemaname>cr452_StudentInformationRetrivalAgent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

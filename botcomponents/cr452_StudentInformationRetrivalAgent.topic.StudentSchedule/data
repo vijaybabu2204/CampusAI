@@ -1,0 +1,78 @@
+kind: AdaptiveDialog
+modelDescription: |-
+  Use this action to retrieve student schedule information, classroom details, trainer information, emergency updates, room changes, cancellations, webinars, virtual meetings, and placement drive schedules from the Weekly Schedule and Emergency Updates tables.
+
+  Always prioritize Emergency Updates over Weekly Schedule records.
+
+  Use this action when students ask about:
+
+  * Today's classes
+  * Room details
+  * Timings
+  * Trainer information
+  * Emergency schedule changes
+  * Webinar or virtual meeting schedules
+  * Placement drives
+  * Batch-specific schedules
+
+  Required inputs:
+  * Batch name
+  * Technology/Course name
+  * Date
+beginDialog:
+  kind: OnRecognizedIntent
+  id: main
+  intent: {}
+  actions:
+    - kind: Question
+      id: question_12T829
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: Topic.VarBatch
+      prompt: Please enter your Batch
+      entity:
+        kind: StringPrebuiltEntity
+        sensitivityLevel: None
+
+    - kind: Question
+      id: question_Urqyjx
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarTechnology
+      prompt: Please enter your Technology
+      entity: StringPrebuiltEntity
+
+    - kind: Question
+      id: question_5zeptR
+      interruptionPolicy:
+        allowInterruption: true
+
+      variable: init:Topic.VarDate
+      prompt: Please enter the date (MM/DD/YYYY)
+      entity: StringPrebuiltEntity
+
+    - kind: InvokeFlowAction
+      id: invokeFlowAction_TIYD6F
+      latencyMessageSettings:
+        allowLatencyMessage: false
+
+      input:
+        binding:
+          text: =Topic.VarBatch
+          text_1: =Topic.VarTechnology
+          text_2: =Topic.VarDate
+
+      output:
+        binding:
+          action: Topic.action
+          batch: Topic.batch
+          output: Topic.output
+          room: Topic.Var1
+          technology: Topic.technology
+
+      flowId: 2b41454b-ee49-f111-bec7-000d3ac9aa91
+
+inputType: {}
+outputType: {}

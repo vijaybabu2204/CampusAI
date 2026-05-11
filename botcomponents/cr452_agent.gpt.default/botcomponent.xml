@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr452_agent.gpt.default">
+  <componenttype>15</componenttype>
+  <description>Admin Emergency Update Agent is an AI-powered assistant designed to handle sudden schedule changes such as room updates, session cancellations, and no-class announcements. It collects update details from the admin through conversation and helps manage emergency changes efficiently</description>
+  <iscustomizable>0</iscustomizable>
+  <name>Admin Emergency Update Agent</name>
+  <parentbotid>
+    <schemaname>cr452_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

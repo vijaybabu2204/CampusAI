@@ -1,0 +1,20 @@
+kind: TaskDialog
+response:
+  activity:
+  mode: Generated
+
+modelDisplayName: Get Student Schedule flow
+modelDescription: |
+  Get Student Schedule flow
+outputs:
+  - propertyName: output
+
+action:
+  kind: InvokeFlowTaskAction
+  flowId: 2b41454b-ee49-f111-bec7-000d3ac9aa91
+  connectionProperties:
+    $kind: ConnectionProperties
+    diagnostics:
+    mode: Invoker
+
+outputMode: All

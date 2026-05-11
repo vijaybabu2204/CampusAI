@@ -1,0 +1,498 @@
+{
+  "properties": {
+    "connectionReferences": {
+      "shared_commondataserviceforapps": {
+        "runtimeSource": "embedded",
+        "connection": {
+          "connectionReferenceLogicalName": "new_sharedcommondataserviceforapps_f93ab"
+        },
+        "api": {
+          "name": "shared_commondataserviceforapps"
+        }
+      }
+    },
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Skills",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {
+                "text": {
+                  "description": "Please enter your input",
+                  "title": "Batch",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_1": {
+                  "description": "Please enter your input",
+                  "title": "Technology",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                },
+                "text_2": {
+                  "description": "Please enter your input",
+                  "title": "Date",
+                  "type": "string",
+                  "x-ms-content-hint": "TEXT",
+                  "x-ms-dynamically-added": true
+                }
+              },
+              "required": [
+                "text",
+                "text_1",
+                "text_2"
+              ]
+            }
+          }
+        }
+      },
+      "actions": {
+        "Listrows": {
+          "runAfter": {},
+          "type": "OpenApiConnection",
+          "inputs": {
+            "parameters": {
+              "entityName": "cr452_emergencyupdateses"
+            },
+            "host": {
+              "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+              "operationId": "ListRecords",
+              "connectionName": "shared_commondataserviceforapps"
+            }
+          }
+        },
+        "Condition": {
+          "actions": {
+            "EmergencyRecord": {
+              "type": "Compose",
+              "inputs": "@first(body('Filterarray'))"
+            },
+            "EmergencyAction": {
+              "runAfter": {
+                "EmergencyRecord": [
+                  "Succeeded"
+                ]
+              },
+              "type": "Compose",
+              "inputs": "@outputs('EmergencyRecord')?['cr452_action']"
+            },
+            "Switch": {
+              "runAfter": {
+                "EmergencyAction": [
+                  "Succeeded"
+                ]
+              },
+              "cases": {
+                "Case": {
+                  "case": "Cancel Day",
+                  "actions": {
+                    "Return_value(s)_to_Power_Virtual_Agents": {
+                      "type": "Response",
+                      "kind": "VirtualAgent",
+                      "inputs": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "output": {
+                              "title": "output",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "action": {
+                              "title": "action",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "batch": {
+                              "title": "batch",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "technology": {
+                              "title": "technology",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "room": {
+                              "title": "room",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            }
+                          },
+                          "additionalProperties": {}
+                        },
+                        "statusCode": 200,
+                        "body": {
+                          "output": "Classes are cancelled today due to emergency update.",
+                          "action": "@{first(outputs('Listrows')?['body/value'])?['cr452_action']}",
+                          "batch": "@{first(outputs('Listrows')?['body/value'])?['cr452_batch']}",
+                          "technology": "@{first(outputs('Listrows')?['body/value'])?['cr452_technology']}",
+                          "room": "@{first(outputs('Listrows')?['body/value'])?['cr452_cr452_newroom']}"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Case 2": {
+                  "case": "Virtual meet",
+                  "actions": {
+                    "Return_value(s)_to_Power_Virtual_Agents_3": {
+                      "type": "Response",
+                      "kind": "VirtualAgent",
+                      "inputs": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "output": {
+                              "title": "output",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "action": {
+                              "title": "action",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "batch": {
+                              "title": "batch",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "technology": {
+                              "title": "technology",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "room": {
+                              "title": "room",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            }
+                          },
+                          "additionalProperties": {}
+                        },
+                        "statusCode": 200,
+                        "body": {
+                          "output": "Today's session will be conducted through virtual meeting platform.",
+                          "action": "@{first(outputs('Listrows')?['body/value'])?['cr452_action']}",
+                          "batch": "@{first(outputs('Listrows')?['body/value'])?['cr452_batch']}",
+                          "technology": "@{first(outputs('Listrows')?['body/value'])?['cr452_technology']}",
+                          "room": "@{first(outputs('Listrows')?['body/value'])?['cr452_cr452_newroom']}"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Case 3": {
+                  "case": "Webinar",
+                  "actions": {
+                    "Return_value(s)_to_Power_Virtual_Agents_2": {
+                      "type": "Response",
+                      "kind": "VirtualAgent",
+                      "inputs": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "output": {
+                              "title": "output",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "action": {
+                              "title": "action",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "batch": {
+                              "title": "batch",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "technology": {
+                              "title": "technology",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "room": {
+                              "title": "room",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            }
+                          },
+                          "additionalProperties": {}
+                        },
+                        "statusCode": 200,
+                        "body": {
+                          "output": "Today's session will be conducted as a webinar",
+                          "action": "@{first(outputs('Listrows')?['body/value'])?['cr452_action']}",
+                          "batch": "@{first(outputs('Listrows')?['body/value'])?['cr452_batch']}",
+                          "technology": "@{first(outputs('Listrows')?['body/value'])?['cr452_technology']}",
+                          "room": "@{first(outputs('Listrows')?['body/value'])?['cr452_cr452_newroom']}"
+                        }
+                      }
+                    }
+                  }
+                },
+                "Case 4": {
+                  "case": "Room Change",
+                  "actions": {
+                    "Return_value(s)_to_Power_Virtual_Agents_1": {
+                      "type": "Response",
+                      "kind": "VirtualAgent",
+                      "inputs": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "output": {
+                              "title": "output",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "action": {
+                              "title": "action",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "batch": {
+                              "title": "batch",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "technology": {
+                              "title": "technology",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            },
+                            "room": {
+                              "title": "room",
+                              "type": "string",
+                              "x-ms-content-hint": "TEXT",
+                              "x-ms-dynamically-added": true
+                            }
+                          },
+                          "additionalProperties": {}
+                        },
+                        "statusCode": 200,
+                        "body": {
+                          "output": "Class has been moved to the New room.",
+                          "action": "@{first(outputs('Listrows')?['body/value'])?['cr452_action']}",
+                          "batch": "@{first(outputs('Listrows')?['body/value'])?['cr452_batch']}",
+                          "technology": "@{first(outputs('Listrows')?['body/value'])?['cr452_technology']}",
+                          "room": "@{first(outputs('Listrows')?['body/value'])?['cr452_cr452_newroom']}"
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "default": {
+                "actions": {
+                  "Return_value(s)_to_Power_Virtual_Agents_4": {
+                    "type": "Response",
+                    "kind": "VirtualAgent",
+                    "inputs": {
+                      "schema": {
+                        "type": "object",
+                        "properties": {
+                          "output": {
+                            "title": "output",
+                            "type": "string",
+                            "x-ms-content-hint": "TEXT",
+                            "x-ms-dynamically-added": true
+                          },
+                          "action": {
+                            "title": "action",
+                            "type": "string",
+                            "x-ms-content-hint": "TEXT",
+                            "x-ms-dynamically-added": true
+                          },
+                          "batch": {
+                            "title": "batch",
+                            "type": "string",
+                            "x-ms-content-hint": "TEXT",
+                            "x-ms-dynamically-added": true
+                          },
+                          "technology": {
+                            "title": "technology",
+                            "type": "string",
+                            "x-ms-content-hint": "TEXT",
+                            "x-ms-dynamically-added": true
+                          },
+                          "room": {
+                            "title": "room",
+                            "type": "string",
+                            "x-ms-content-hint": "TEXT",
+                            "x-ms-dynamically-added": true
+                          }
+                        },
+                        "additionalProperties": {}
+                      },
+                      "statusCode": 200,
+                      "body": {
+                        "output": "An emergency update is available for today's schedule.",
+                        "action": "@{first(outputs('Listrows')?['body/value'])?['cr452_action']}",
+                        "batch": "@{first(outputs('Listrows')?['body/value'])?['cr452_batch']}",
+                        "technology": "@{first(outputs('Listrows')?['body/value'])?['cr452_technology']}",
+                        "room": "@{first(outputs('Listrows')?['body/value'])?['cr452_cr452_newroom']}"
+                      }
+                    }
+                  }
+                }
+              },
+              "expression": "@outputs('EmergencyAction')",
+              "type": "Switch"
+            }
+          },
+          "runAfter": {
+            "Filterarray": [
+              "Succeeded"
+            ]
+          },
+          "else": {
+            "actions": {
+              "Listrows2": {
+                "type": "OpenApiConnection",
+                "inputs": {
+                  "parameters": {
+                    "entityName": "cr452_weeklyschedules",
+                    "$filter": "cr452_batch eq '@{triggerBody()['text']}'\nand cr452_technology eq '@{triggerBody()['text_1']}'"
+                  },
+                  "host": {
+                    "apiId": "/providers/Microsoft.PowerApps/apis/shared_commondataserviceforapps",
+                    "operationId": "ListRecords",
+                    "connectionName": "shared_commondataserviceforapps"
+                  }
+                }
+              },
+              "Compose": {
+                "runAfter": {
+                  "Listrows2": [
+                    "Succeeded"
+                  ]
+                },
+                "type": "Compose",
+                "inputs": "@first(body('Listrows2')?['value'])"
+              },
+              "Return_value(s)_to_Power_Virtual_Agents_5": {
+                "runAfter": {
+                  "Compose": [
+                    "Succeeded"
+                  ]
+                },
+                "type": "Response",
+                "kind": "VirtualAgent",
+                "inputs": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "output": {
+                        "title": "output",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      },
+                      "room": {
+                        "title": "room",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      },
+                      "technology": {
+                        "title": "technology",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      },
+                      "batch": {
+                        "title": "batch",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      },
+                      "action": {
+                        "title": "action",
+                        "type": "string",
+                        "x-ms-content-hint": "TEXT",
+                        "x-ms-dynamically-added": true
+                      }
+                    },
+                    "additionalProperties": {}
+                  },
+                  "statusCode": 200,
+                  "body": {
+                    "output": "Class is scheduled as per the regular timetable today.",
+                    "room": "@{first(outputs('Listrows2')?['body/value'])?['cr452_room']}",
+                    "technology": "@{first(outputs('Listrows2')?['body/value'])?['cr452_technology']}",
+                    "batch": "@{first(outputs('Listrows2')?['body/value'])?['cr452_batch']}",
+                    "action": "@{first(outputs('Listrows2')?['body/value'])?['cr452_session']}"
+                  }
+                }
+              }
+            }
+          },
+          "expression": {
+            "and": [
+              {
+                "greater": [
+                  "@length(body('Filterarray'))",
+                  0
+                ]
+              }
+            ]
+          },
+          "type": "If"
+        },
+        "Filterarray": {
+          "runAfter": {
+            "Listrows": [
+              "Succeeded"
+            ]
+          },
+          "type": "Query",
+          "inputs": {
+            "from": "@outputs('Listrows')?['body/value']",
+            "where": "@and(lessOrEquals(formatDateTime(item()?['cr452_date'],'yyyy-MM-dd'),formatDateTime(triggerBody()?['text_2'],'yyyy-MM-dd')),greaterOrEquals(formatDateTime(item()?['cr452_enddate'],'yyyy-MM-dd'),formatDateTime(triggerBody()?['text_2'],'yyyy-MM-dd')),or(equals(item()?['cr452_technology'],'All technologies'),and(equals(item()?['cr452_batch'],triggerBody()?['text']),equals(item()?['cr452_technology'],triggerBody()?['text_1']))))"
+          }
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}

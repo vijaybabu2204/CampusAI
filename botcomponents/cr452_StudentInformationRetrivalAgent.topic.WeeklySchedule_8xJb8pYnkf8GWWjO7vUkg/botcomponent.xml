@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr452_StudentInformationRetrivalAgent.topic.WeeklySchedule_8xJb8pYnkf8GWWjO7vUkg">
+  <componenttype>16</componenttype>
+  <description>This knowledge source answers questions found in the following Dataverse items: WeeklySchedule</description>
+  <iscustomizable>0</iscustomizable>
+  <name>WeeklySchedule</name>
+  <parentbotid>
+    <schemaname>cr452_StudentInformationRetrivalAgent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

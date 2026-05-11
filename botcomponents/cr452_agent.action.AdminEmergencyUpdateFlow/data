@@ -1,0 +1,10 @@
+kind: TaskDialog
+action:
+  kind: InvokeFlowTaskAction
+  flowId: 359d5bc4-9f39-f111-88b4-000d3ac9aa91
+  connectionProperties:
+    $kind: ConnectionProperties
+    diagnostics:
+    mode: Invoker
+
+outputMode: Specific

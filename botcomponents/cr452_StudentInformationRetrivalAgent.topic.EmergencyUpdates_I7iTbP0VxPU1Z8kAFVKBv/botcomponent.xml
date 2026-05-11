@@ -1,0 +1,11 @@
+<botcomponent schemaname="cr452_StudentInformationRetrivalAgent.topic.EmergencyUpdates_I7iTbP0VxPU1Z8kAFVKBv">
+  <componenttype>16</componenttype>
+  <description>This knowledge source answers questions found in the following Dataverse items: EmergencyUpdates</description>
+  <iscustomizable>0</iscustomizable>
+  <name>EmergencyUpdates</name>
+  <parentbotid>
+    <schemaname>cr452_StudentInformationRetrivalAgent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>

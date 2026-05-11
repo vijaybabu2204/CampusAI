@@ -1,0 +1,10 @@
+<dvtablesearchentity dvtablesearchentityid="9fcba654-e02b-4c5c-b790-41493accf869">
+  <dvtablesearch>
+    <dvtablesearchid>c57e6eb6-33f5-4e11-8498-097d0fc1de1b</dvtablesearchid>
+  </dvtablesearch>
+  <entitylogicalname>cr452_weeklyschedule</entitylogicalname>
+  <iscustomizable>0</iscustomizable>
+  <name>cr452_WeeklySchedule</name>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</dvtablesearchentity>

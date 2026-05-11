@@ -1,0 +1,15 @@
+<botcomponent schemaname="mspva_18192bb1-538f-4476-812d-3d4f08aef7c3">
+  <category>Testing</category>
+  <componenttype>19</componenttype>
+  <description>schedule a webinar for tomorrow session to all the technologies</description>
+  <iscustomizable>0</iscustomizable>
+  <name>schedule a webinar for tomorrow session to all the technologies</name>
+  <parentbotcomponentid>
+    <schemaname>mspva_c15fabe5-6c6a-4d79-93f0-84b31d34950a</schemaname>
+  </parentbotcomponentid>
+  <parentbotid>
+    <schemaname>cr452_agent</schemaname>
+  </parentbotid>
+  <statecode>0</statecode>
+  <statuscode>1</statuscode>
+</botcomponent>
