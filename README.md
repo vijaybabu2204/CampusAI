@@ -115,7 +115,11 @@ Campus AI acts as a **centralized intelligence layer** for academic operations:
 > *Structured Dataverse tables storing schedule, emergency updates, and webinar data.*
 
 ### Canvas App UI
-![Canvas App](./docs/screenshots/canvas-app.png)
+![Canvas App]<img width="1600" height="788" alt="WhatsApp Image 2026-05-11 at 9 31 05 PM" src="https://github.com/user-attachments/assets/df9ea231-7638-4cf0-8517-5ea1e9dfd904" />
+<img width="1600" height="765" alt="WhatsApp Image 2026-05-11 at 9 31 06 PM" src="https://github.com/user-attachments/assets/a9d95e71-7191-425b-ba46-6d92c6464bfd" />
+<img width="1600" height="741" alt="WhatsApp Image 2026-05-11 at 9 31 06 PM (1)" src="https://github.com/user-attachments/assets/50a81738-09a5-4e16-a291-cca258a1f317" />
+
+
 > *PCF-powered Canvas App with Purple Hex UI, full-screen phone layout.*
 
 > 📁 **To add screenshots:**
