@@ -23,33 +23,7 @@
 
 ---
 
-## 📑 Table of Contents
 
-- [Overview](#-overview)
-- [Problem Statement](#-problem-statement)
-- [Objectives](#-objectives)
-- [The Solution](#-the-solution)
-- [Screenshots](#-screenshots)
-- [Demo Video](#-demo-video)
-- [Technology Stack](#️-technology-stack)
-- [System Architecture](#️-system-architecture)
-- [Key Features](#-key-features)
-- [Modules](#-modules)
-- [How It Works](#-how-it-works)
-- [Database Design](#️-database-design)
-- [Power Automate Flows](#-power-automate-flows)
-- [Copilot Studio Configuration](#-copilot-studio-configuration)
-- [Project Structure](#-project-structure)
-- [Prerequisites](#-prerequisites)
-- [Installation & Setup](#-installation--setup)
-- [Testing](#-testing)
-- [Results](#-results)
-- [Common Errors & Fixes](#-common-errors--fixes)
-- [Required Licenses](#-required-licenses)
-- [Advantages](#-advantages)
-- [Future Scope](#-future-scope)
-- [Team](#-team)
-- [License](#-license)
 
 ---
 
