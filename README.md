@@ -743,7 +743,12 @@ The platform eliminates manual schedule communication entirely — a task that p
 
 | Name | Role |
 |---|---|
-| **vijaybabu2204** | Developer — Power Platform, PCF, Copilot Studio |
+| **vijaybabu** | Developer — Power Platform |
+| **Yamini Devi** | Developer — Power Platform |
+| **Karthik** | Developer —  Copilot Studio |
+| **Neeraja** | Developer — Copilot Studio |
+| **Jahnavi** | Developer — Copilot Studio |
+| **Niharika** | Developer — Copilot Studio |
 
 > *Built as part of an academic project using Microsoft Power Platform.*
 
