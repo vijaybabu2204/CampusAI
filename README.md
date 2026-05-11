@@ -1,223 +1,305 @@
-# 🎓 Campus AI — Intelligent Academic Management System
-> Redefining how educational institutions communicate, automate, and operate — powered by Microsoft Power Platform and Azure AI.
+# CampusAI Setup Guide
+
+## Project Overview
+
+**Campus AI** is an intelligent academic management system built on Microsoft Power Platform.
+It uses AI-powered agents to automate campus communication, schedule updates, emergency notifications,
+webinars, and placement drive information through conversational interfaces.
+
+### Built With
+- Microsoft Power Apps (Canvas App + PCF Component)
+- Microsoft Copilot Studio (Student Agent + Admin Agent)
+- Microsoft Power Automate (Backend flows)
+- Microsoft Dataverse (Database)
+- Microsoft Outlook (Notifications)
+- Power Apps Component Framework (PCF) — Purple Hex UI
 
 ---
 
-## 📌 Overview
+## Required Environment
 
-**Campus AI** is a cloud-native, AI-powered academic management platform built on the **Microsoft Power Platform** ecosystem. It unifies fragmented academic communication into a single intelligent system — enabling students to query information conversationally and administrators to manage schedules through natural language.
-
-No more missed updates. No more WhatsApp chaos. No more administrative bottlenecks.
-
----
-
-## 🚨 The Problem
-
-Academic communication in most institutions is scattered across:
-
-- 📋 Notice boards
-- 💬 WhatsApp groups
-- 📧 Email chains
-- 🌐 Disconnected portals
-
-This fragmentation causes students to **miss critical updates** — room changes, session cancellations, placement drives, trainer reassignments — and leaves administrators buried in repetitive manual work.
+| Requirement | Details |
+|-------------|---------|
+| Microsoft 365 License | With Power Apps access |
+| Power Apps Plan | Per-app or Per-user license |
+| Copilot Studio License | For AI agents |
+| Dataverse Environment | Developer or Production |
+| Node.js | v16 or higher |
+| Power Platform CLI (PAC) | Latest version |
+| .NET SDK | v6 or higher |
+| VS Code | Latest version |
 
 ---
 
-## 💡 The Solution
+## How to Import Solution
 
-Campus AI acts as a **centralized intelligence layer** for academic operations:
+### Step 1 — Prerequisites
+Install required tools:
+```powershell
+# Install Power Platform CLI
+winget install Microsoft.PowerPlatformCLI
 
-| For Students | For Admins |
-|---|---|
-| Ask any academic question conversationally | Update schedules using plain English |
-| Get real-time timetable & placement info | Emergency updates override schedules automatically |
-| Never miss a room change or cancellation | Zero manual follow-up required |
-
----
-
-## ⚙️ Technology Stack
-
-| Technology | Role |
-|---|---|
-| **Microsoft Power Apps** | Frontend application interface |
-| **Microsoft Copilot Studio** | AI Agents (Student & Admin) |
-| **Microsoft Power Automate** | Workflow & process automation |
-| **Microsoft Dataverse** | Cloud relational database |
-| **Microsoft Power BI** | Analytics & reporting dashboard |
-| **Azure AI Services** | Natural Language Processing |
-| **SharePoint Online** | Document & resource storage |
-| **Microsoft 365** | Authentication & platform integration |
-
----
-
-## 🏗️ System Architecture
-
-Campus AI is structured across a **three-tier cloud architecture**:
-
-```
-┌─────────────────────────────────────────────┐
-│            PRESENTATION LAYER               │
-│   Power Apps │ Admin Agent │ Student Agent  │
-│              Analytics Dashboard            │
-└────────────────────┬────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────┐
-│               LOGIC LAYER                   │
-│  Power Automate Flows │ Override Logic      │
-│  Schedule Retrieval │ Data Cleanup          │
-└────────────────────┬────────────────────────┘
-                     │
-┌────────────────────▼────────────────────────┐
-│                DATA LAYER                   │
-│  Weekly Schedule │ Emergency Updates        │
-│  Placement Data │ Academic Information      │
-└─────────────────────────────────────────────┘
+# Verify installation
+pac --version
+node --version
 ```
 
----
-
-## ✨ Key Features
-
-### 🧑‍🎓 Student Agent
-- Conversational timetable lookups
-- Faculty and trainer information
-- Placement drive schedules
-- Emergency & override schedule updates
-- Natural language query handling
-
-### 🛠️ Admin Agent
-- Natural language schedule modifications
-- Emergency update broadcasting
-- Automated timetable management
-- Workflow-driven data automation
-
-### 🔧 System Capabilities
-- ⚡ Real-time schedule communication
-- 🔄 Intelligent emergency override logic
-- 🤖 AI-powered conversational interface
-- 📊 Analytics and reporting dashboard
-- 🔐 Secure, cloud-based architecture
-
----
-
-## 🔁 How It Works
-
-### Admin Workflow
-```
-Admin enters update in natural language
-        ↓
-AI Agent extracts parameters via NLP
-        ↓
-Power Automate validates & processes data
-        ↓
-Emergency update stored in Dataverse
-        ↓
-Students receive updated information instantly
+### Step 2 — Fix PowerShell Execution Policy
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 ```
 
-### Student Workflow
+### Step 3 — Create PCF Project
+```powershell
+cd C:\
+mkdir PCFProject
+cd PCFProject
+mkdir CampusAI
+cd CampusAI
+
+pac pcf init --namespace BotApp --name CampusAIApp --template field
+npm install
+code .
 ```
-Student asks a query conversationally
-        ↓
-Student Agent processes the request
-        ↓
-System checks for emergency overrides first
-        ↓
-Latest & most accurate data is returned
-        ↓
-Student gets the right answer, instantly
+
+### Step 4 — Replace PCF Files in VS Code
+Replace these two files with the Campus AI versions:
+- `ControlManifest.Input.xml`
+- `index.ts`
+
+Save both files (`Ctrl+S`)
+
+### Step 5 — Build and Push PCF
+```powershell
+# Build the component
+npm run build
+
+# Authenticate to your environment
+pac auth create --url https://yourorg.crm.dynamics.com
+
+# Verify connection
+pac org who
+
+# Push to Power Apps
+pac pcf push --publisher-prefix ca
 ```
 
 ---
 
-## 🗄️ Database Design
+## Dataverse Setup
 
-### Weekly Schedule Table
-Stores the permanent academic timetable:
+### Tables Required
 
-| Field | Description |
-|---|---|
-| Batch Name | Student group identifier |
-| Technology / Subject | Course or topic |
-| Trainer Name | Assigned faculty/trainer |
-| Room / Venue | Physical or virtual location |
-| Day of Week | Scheduled day |
-| Session Timings | Start and end time |
+#### 1. Weekly Schedule Table
+| Column | Type | Description |
+|--------|------|-------------|
+| batch | Text | Batch name (e.g. Batch A) |
+| technology | Text | Subject/Technology name |
+| trainer | Text | Trainer full name |
+| room | Text | Room/Lab number |
+| day | Choice | Monday to Saturday |
+| start_time | DateTime | Class start time |
+| end_time | DateTime | Class end time |
 
-### Emergency Updates Table
-Stores temporary schedule overrides:
+#### 2. Emergency Updates Table
+| Column | Type | Description |
+|--------|------|-------------|
+| batch | Text | Affected batch name |
+| technology | Text | Affected subject |
+| action | Choice | Move / Cancel / No Class |
+| new_room | Text | New room (if moved) |
+| start_date | Date | Update start date |
+| end_date | Date | Update end date |
+| created_by | Text | Admin who created |
+| created_on | DateTime | Timestamp |
 
-| Field | Description |
-|---|---|
-| Update ID | Unique identifier |
-| Batch Name | Affected student group |
-| Technology | Affected subject/course |
-| Action Type | Type of change (cancel, reschedule, etc.) |
-| New Venue | Updated location |
-| Start Date | Override effective from |
-| End Date | Override expires on |
-
----
-
-## ⚡ Power Automate Flows
-
-| Flow Name | Purpose |
-|---|---|
-| `Add Emergency Update` | Insert new schedule changes |
-| `Retrieve Student Schedule` | Fetch timetable data |
-| `Apply Override Logic` | Merge emergency updates with base schedule |
-| `Delete Expired Updates` | Auto-cleanup old records |
-| `Placement Drive Query` | Return placement-related information |
+#### 3. Webinars Table
+| Column | Type | Description |
+|--------|------|-------------|
+| title | Text | Webinar topic |
+| presenter | Text | Presenter name |
+| platform | Choice | Teams / Zoom / Meet |
+| link | URL | Meeting link |
+| date_time | DateTime | Scheduled date and time |
+| batch | Text | Target batch |
 
 ---
 
-## 📈 Advantages
+## Power Automate Flows
 
-- ✅ **Single source of truth** for all academic communication
-- ✅ **Real-time delivery** — no delays, no manual broadcasts
-- ✅ **Reduced admin workload** — automation handles the repetitive tasks
-- ✅ **Student-first UX** — conversational, intuitive, always available
-- ✅ **Enterprise-grade security** via Microsoft 365
-- ✅ **Scalable architecture** built for growth
+### Flow 1 — Add Emergency Update
+```
+Trigger: HTTP Request (from Admin Agent)
+Action 1: Parse JSON (extract command details)
+Action 2: Create row in Emergency Updates table
+Action 3: Send Outlook notification to batch
+```
 
----
+### Flow 2 — Get Student Schedule
+```
+Trigger: HTTP Request (from Student Agent)
+Action 1: Get rows from Weekly Schedule table
+Action 2: Get rows from Emergency Updates table
+Action 3: Apply override logic
+Action 4: Return merged schedule
+```
 
-## 🚀 Roadmap
-
-- [ ] 🎙️ Voice-based interaction support
-- [ ] 📱 Mobile application deployment
-- [ ] 🌐 Multi-language chatbot support
-- [ ] 🔒 Biometric attendance integration
-- [ ] 📚 LMS (Learning Management System) integration
-- [ ] 🧠 AI predictive analytics for academic trends
-- [ ] 🔔 Push notifications via Microsoft Teams & Email
-
----
-
-## 🧰 Built With
-
-![Power Apps]
-![Power Automate]
-![Copilot Studio]
-![Dataverse]
-![Power BI]
-![Azure]
-![SharePoint]
-<img width="292" height="559" alt="WhatsApp Image 2026-05-10 at 4 09 50 PM" src="https://github.com/user-attachments/assets/f5aca841-d24e-4514-88e2-d909d572fc48" />
-<img width="294" height="542" alt="WhatsApp Image 2026-05-10 at 4 09 50 PM (1)" src="https://github.com/user-attachments/assets/8dd55150-bd36-44fd-b63f-40be7cf15026" />
-<img width="299" height="493" alt="WhatsApp Image 2026-05-10 at 4 09 51 PM" src="https://github.com/user-attachments/assets/8f0b05b3-d42b-4ee7-9d5a-8e91192d3b6b" />
-<img width="294" height="506" alt="WhatsApp Image 2026-05-10 at 4 09 51 PM (1)" src="https://github.com/user-attachments/assets/f8333a27-c94c-4d51-98f4-34020b3364f0" />
-
+### Flow 3 — Add Webinar / Virtual Meet
+```
+Trigger: HTTP Request (from Admin Agent)
+Action 1: Parse JSON (webinar details)
+Action 2: Create row in Webinars table
+Action 3: Send Teams/Outlook invite to batch
+```
 
 ---
 
-## 📄 License
+## Copilot Studio Configuration
 
-This project is developed for academic and institutional use. Refer to the [LICENSE](./LICENSE) file for details.
+### Student Agent Topics
+| Topic | Trigger Phrases |
+|-------|----------------|
+| Get Schedule | "my schedule", "today's classes", "timetable" |
+| Emergency Updates | "any updates", "changes today", "cancelled" |
+| Find Room | "where is my class", "room for flutter" |
+| Trainer Info | "who is my trainer", "faculty for python" |
+| Webinars | "any webinars", "virtual meet today" |
+
+### Admin Agent Topics
+| Topic | Trigger Phrases |
+|-------|----------------|
+| Move Room | "move class to", "change room" |
+| Cancel Class | "cancel today's", "no session" |
+| No Classes | "no classes for batch", "holiday" |
+| Add Webinar | "add webinar", "schedule meet" |
+| Share Link | "send webinar link", "share meeting" |
 
 ---
 
-<div align="center">
-  <strong>Campus AI</strong> — Smarter Campuses. Seamless Communication. Zero Friction.
-</div>
+## Connection References
+
+After importing solution, reconnect these:
+
+| Connection | Type | Used By |
+|------------|------|---------|
+| Dataverse | Microsoft Dataverse | All flows |
+| Office 365 Outlook | Outlook | Notification flows |
+| Microsoft Teams | Teams connector | Webinar flows |
+
+Steps to reconnect:
+1. Go to **make.powerapps.com**
+2. Open **Campus AI** solution
+3. Click **Cloud flows**
+4. Open each flow → click **Edit**
+5. Fix any connections shown in red
+6. Save and enable the flow
+
+---
+
+## Required Licenses
+
+| License | Purpose |
+|---------|---------|
+| Microsoft 365 | Outlook, Teams integration |
+| Power Apps per-user or per-app | Canvas App access |
+| Power Automate | Cloud flows |
+| Copilot Studio (100 sessions/month free) | AI agents |
+| Dataverse | Database storage |
+
+---
+
+## Canvas App Setup
+
+### Step 1 — Create Canvas App
+1. Go to **make.powerapps.com**
+2. Open **Campus AI** solution
+3. Click **+ New** → **App** → **Canvas app**
+4. Choose **Phone layout**
+
+### Step 2 — Enable PCF Components
+Inside the Canvas App editor:
+1. Click **Settings** → **Updates**
+2. Click **Preview** tab
+3. Find **"Power Apps component framework for canvas apps"**
+4. Toggle **ON** → Close
+
+### Step 3 — Insert PCF Component
+```
++ Insert
+→ Get more components (bottom)
+→ Code tab
+→ CampusAIApp
+→ Import
+→ Insert → Code components → CampusAIApp
+```
+
+### Step 4 — Full Screen Setup
+Select the component and set:
+```
+X      = 0
+Y      = 0
+Width  = App.Width
+Height = App.Height
+```
+
+### Step 5 — Connect Properties
+| Property | Formula |
+|----------|---------|
+| userRole | "student" or variable |
+| userName | User().FullName |
+| agentEndpoint | "your copilot studio URL" |
+| adminFlowUrl | "your power automate URL" |
+| outlookFlowUrl | "your outlook flow URL" |
+
+---
+
+## Steps to Run Chatbot / App
+
+1. Import the Campus AI solution into Power Platform
+2. Configure Dataverse tables (add sample data)
+3. Reconnect Power Automate flows
+4. Configure Copilot Studio agent connections
+5. Push PCF component using `pac pcf push --publisher-prefix ca`
+6. Open Canvas App → insert PCF component
+7. Connect all properties
+8. Click **Save** → **Publish**
+9. Share the app with students and admins
+
+---
+
+## Common Errors and Fixes
+
+| Error | Fix |
+|-------|-----|
+| `running scripts is disabled` | `Set-ExecutionPolicy RemoteSigned -Scope CurrentUser` |
+| `pcfproj not found` | Run push from PCF root folder, not solutions subfolder |
+| `No active environment` | Run `pac org select --environment "your-env"` |
+| `publisher-prefix error` | Use `--publisher-prefix` not `--publisher -prefix` |
+| Component not in Insert menu | Enable PCF in Settings → Updates → Preview |
+| Flow connection error | Reconnect Dataverse and Outlook connections |
+
+---
+
+## Project Structure
+
+```
+CampusAI/
+├── ControlManifest.Input.xml    # PCF properties definition
+├── index.ts                     # Full app UI and logic
+├── package.json                 # Build dependencies
+├── tsconfig.json                # TypeScript config
+├── generated/
+│   └── ManifestTypes.d.ts       # Auto-generated types
+└── solutions/
+    ├── CampusAI.cdsproj
+    └── bin/Debug/                # Built solution zip
+```
+
+---
+
+## Support
+
+For issues contact your Power Platform administrator or
+raise a request at the campus IT helpdesk.
+
+**Campus AI v2.0 — Built with Microsoft Power Platform**
