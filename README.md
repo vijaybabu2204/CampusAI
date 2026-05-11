@@ -707,6 +707,7 @@ These features require new components but are natural extensions of the existing
 FeatureIntegration PointPlanned Approach🔔 Push notificationsExisting Outlook flow already sends emailAdd Teams connector to the same flow; use Power Automate mobile push action📅 Calendar syncPower Automate already has Office 365 connectorAdd "Create event" action to the Add Emergency Update flow🌐 Multi-language supportCopilot Studio supports language configurationAdd language detection topic; configure secondary language in agent settings📚 LMS integrationPower Automate supports HTTP connectorBuild new flow with HTTP trigger → LMS REST API → Dataverse sync🔒 Biometric attendanceDataverse has no attendance table yetRequires new Attendance table + biometric device API + Power Automate flow🧠 AI predictive analyticsPower BI is already in the stackConnect Power BI to Dataverse; build attendance and schedule trend reports📊 Student performance dashboardPower BI + Dataverse already connectedCreate dedicated Power BI report page with per-batch analytics🔗 ERP integrationPower Automate supports SAP + Dynamics connectorsMap Dataverse schema to ERP entity structure; build bidirectional sync flow
 
 Note for evaluators: Voice interaction and mobile layout are the only features with existing code hooks. All other items are honest planned extensions requiring new flows, tables, or connectors — no placeholder code exists for them in the current version.
+---
 ## 👥 Team
 
 | Name | Role |
