@@ -698,6 +698,8 @@ The platform eliminates manual schedule communication entirely — a task that p
 
 ---
 🔭 Future Scope
+
+
 Future enhancements are categorized by their current foundation in the codebase — so each item is an honest extension of what already exists, not an unsupported claim.
 ✅ Partially Implemented — Thin Foundation Exists
 These features have structural hooks already present in the current codebase:
