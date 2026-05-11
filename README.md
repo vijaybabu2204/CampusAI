@@ -697,18 +697,41 @@ The platform eliminates manual schedule communication entirely — a task that p
 - ✅ **Scalable** — supports multiple batches, technologies, and trainers
 
 ---
-🔭 Future Scope
+# 🔭 Future Scope — Campus AI
 
+> Future enhancements are categorized by their **current foundation in the codebase** — so each item is an honest extension of what already exists, not an unsupported claim.
 
-Future enhancements are categorized by their current foundation in the codebase — so each item is an honest extension of what already exists, not an unsupported claim.
-✅ Partially Implemented — Thin Foundation Exists
+---
+
+## ✅ Partially Implemented — Thin Foundation Exists
+
 These features have structural hooks already present in the current codebase:
-FeatureCurrent FoundationWhat's Needed to Complete🎙️ Voice-based interaction_handleMic stub in bundle.js + <speak> voice properties in bot topic data filesWire mic button to Web Speech API; pipe text to existing getStudentReply() or agent endpoint📱 Mobile-responsive layoutPCF CSS targets phone layout; Canvas App uses App.Width / App.Height bindingPublish via Power Apps mobile app; test on iOS/Android
-🔲 Planned — Requires New Development
-These features require new components but are natural extensions of the existing architecture:
-FeatureIntegration PointPlanned Approach🔔 Push notificationsExisting Outlook flow already sends emailAdd Teams connector to the same flow; use Power Automate mobile push action📅 Calendar syncPower Automate already has Office 365 connectorAdd "Create event" action to the Add Emergency Update flow🌐 Multi-language supportCopilot Studio supports language configurationAdd language detection topic; configure secondary language in agent settings📚 LMS integrationPower Automate supports HTTP connectorBuild new flow with HTTP trigger → LMS REST API → Dataverse sync🔒 Biometric attendanceDataverse has no attendance table yetRequires new Attendance table + biometric device API + Power Automate flow🧠 AI predictive analyticsPower BI is already in the stackConnect Power BI to Dataverse; build attendance and schedule trend reports📊 Student performance dashboardPower BI + Dataverse already connectedCreate dedicated Power BI report page with per-batch analytics🔗 ERP integrationPower Automate supports SAP + Dynamics connectorsMap Dataverse schema to ERP entity structure; build bidirectional sync flow
 
-Note for evaluators: Voice interaction and mobile layout are the only features with existing code hooks. All other items are honest planned extensions requiring new flows, tables, or connectors — no placeholder code exists for them in the current version.
+| Feature | Current Foundation | What's Needed to Complete |
+|---|---|---|
+| 🎙️ **Voice-based interaction** | `_handleMic` stub in `bundle.js` + `<speak>` voice properties in bot topic data files | Wire mic button to Web Speech API; pipe text to existing `getStudentReply()` or agent endpoint |
+| 📱 **Mobile-responsive layout** | PCF CSS targets phone layout; Canvas App uses `App.Width / App.Height` binding | Publish via Power Apps mobile app; test on iOS/Android |
+
+---
+
+## 🔲 Planned — Requires New Development
+
+These features require new components but are natural extensions of the existing architecture:
+
+| Feature | Integration Point | Planned Approach |
+|---|---|---|
+| 🔔 **Push notifications** | Existing Outlook flow already sends email | Add Teams connector to the same flow; use Power Automate mobile push action |
+| 📅 **Calendar sync** | Power Automate already has Office 365 connector | Add "Create event" action to the Add Emergency Update flow |
+| 🌐 **Multi-language support** | Copilot Studio supports language configuration | Add language detection topic; configure secondary language in agent settings |
+| 📚 **LMS integration** | Power Automate supports HTTP connector | Build new flow with HTTP trigger → LMS REST API → Dataverse sync |
+| 🔒 **Biometric attendance** | Dataverse has no attendance table yet | Requires new `Attendance` table + biometric device API + Power Automate flow |
+| 🧠 **AI predictive analytics** | Power BI is already in the stack | Connect Power BI to Dataverse; build attendance and schedule trend reports |
+| 📊 **Student performance dashboard** | Power BI + Dataverse already connected | Create dedicated Power BI report page with per-batch analytics |
+| 🔗 **ERP integration** | Power Automate supports SAP + Dynamics connectors | Map Dataverse schema to ERP entity structure; build bidirectional sync flow |
+
+---
+
+> **Note for evaluators:** Voice interaction and mobile layout are the only features with existing code hooks. All other items are honest planned extensions requiring new flows, tables, or connectors — no placeholder code exists for them in the current version.
 ---
 ## 👥 Team
 
