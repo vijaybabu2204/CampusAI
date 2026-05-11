@@ -697,22 +697,16 @@ The platform eliminates manual schedule communication entirely — a task that p
 - ✅ **Scalable** — supports multiple batches, technologies, and trainers
 
 ---
+🔭 Future Scope
+Future enhancements are categorized by their current foundation in the codebase — so each item is an honest extension of what already exists, not an unsupported claim.
+✅ Partially Implemented — Thin Foundation Exists
+These features have structural hooks already present in the current codebase:
+FeatureCurrent FoundationWhat's Needed to Complete🎙️ Voice-based interaction_handleMic stub in bundle.js + <speak> voice properties in bot topic data filesWire mic button to Web Speech API; pipe text to existing getStudentReply() or agent endpoint📱 Mobile-responsive layoutPCF CSS targets phone layout; Canvas App uses App.Width / App.Height bindingPublish via Power Apps mobile app; test on iOS/Android
+🔲 Planned — Requires New Development
+These features require new components but are natural extensions of the existing architecture:
+FeatureIntegration PointPlanned Approach🔔 Push notificationsExisting Outlook flow already sends emailAdd Teams connector to the same flow; use Power Automate mobile push action📅 Calendar syncPower Automate already has Office 365 connectorAdd "Create event" action to the Add Emergency Update flow🌐 Multi-language supportCopilot Studio supports language configurationAdd language detection topic; configure secondary language in agent settings📚 LMS integrationPower Automate supports HTTP connectorBuild new flow with HTTP trigger → LMS REST API → Dataverse sync🔒 Biometric attendanceDataverse has no attendance table yetRequires new Attendance table + biometric device API + Power Automate flow🧠 AI predictive analyticsPower BI is already in the stackConnect Power BI to Dataverse; build attendance and schedule trend reports📊 Student performance dashboardPower BI + Dataverse already connectedCreate dedicated Power BI report page with per-batch analytics🔗 ERP integrationPower Automate supports SAP + Dynamics connectorsMap Dataverse schema to ERP entity structure; build bidirectional sync flow
 
-## 🔭 Future Scope
-
-- [ ] 🎙️ **Voice-based interaction** — speak queries instead of typing
-- [ ] 📱 **Mobile app deployment** — dedicated iOS & Android app
-- [ ] 🌐 **Multi-language support** — regional language chatbot
-- [ ] 🔒 **Biometric attendance integration** — auto-mark attendance
-- [ ] 📚 **LMS integration** — connect with Moodle, Google Classroom
-- [ ] 🧠 **AI predictive analytics** — predict attendance drops, schedule conflicts
-- [ ] 🔔 **Push notifications** — via Teams & Outlook mobile
-- [ ] 📅 **Calendar sync** — Outlook / Google Calendar auto-sync
-- [ ] 📊 **Student performance dashboard** — AI-generated insights per batch
-- [ ] 🔗 **ERP integration** — connect with institutional ERP systems
-
----
-
+Note for evaluators: Voice interaction and mobile layout are the only features with existing code hooks. All other items are honest planned extensions requiring new flows, tables, or connectors — no placeholder code exists for them in the current version.
 ## 👥 Team
 
 | Name | Role |
